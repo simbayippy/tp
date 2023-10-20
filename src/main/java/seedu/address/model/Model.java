@@ -102,4 +102,11 @@ public interface Model {
      * @param toAdd Appointment to be added.
      */
     void addAppointment(Appointment toAdd);
+
+    /**
+     * Deletes an appointment in the address book.
+     *
+     * @param index Index of apoointment to delete.
+     */
+    void deleteAppointment(int index);
 }
