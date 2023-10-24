@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import java.nio.file.Path;
+import java.util.Optional;
+import java.util.logging.Logger;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,6 +18,8 @@ import seedu.address.model.ReadOnlyClinicAssistant;
 import seedu.address.model.UserPrefs;
 
 public class StorageManagerTest {
+
+    private static final Logger logger = Logger.getLogger(StorageManagerTest.class.getName());
 
     @TempDir
     public Path testFolder;
@@ -55,8 +59,18 @@ public class StorageManagerTest {
          * More extensive testing of UserPref saving/reading is done in {@link JsonAddressBookStorageTest} class.
          */
         ClinicAssistant original = getTypicalAddressBook();
+        logger.info("original " + original);
+        // saves to json
         storageManager.saveClinicAssistant(original);
-        ReadOnlyClinicAssistant retrieved = storageManager.readClinicAssistant().get();
+        logger.info("reaches here ");
+
+        // reads from json
+        Optional<ReadOnlyClinicAssistant> optional = storageManager.readClinicAssistant();
+        logger.info("in betweem");
+        ReadOnlyClinicAssistant retrieved = optional.get();
+//        ReadOnlyClinicAssistant retrieved = storageManager.readClinicAssistant().get();
+        logger.info("NOT HERE");
+        logger.info("retrieved " + retrieved);
         assertEquals(original, new ClinicAssistant(retrieved));
     }
 

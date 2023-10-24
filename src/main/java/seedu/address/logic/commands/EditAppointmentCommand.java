@@ -83,8 +83,10 @@ public class EditAppointmentCommand extends Command {
 
         // Update appointment in patient
         int appointmentIndexInPatient = patient.getAppointments().indexOf(appointmentToEdit);
+        // updates appointment in patient
         patient.editAppointment(appointmentIndexInPatient, editedAppointment);
 
+        // updates appointment in model
         model.setAppointment(appointmentToEdit, editedAppointment);
         model.updateFilteredAppointmentList(PREDICATE_SHOW_ALL_APPTS);
         return new CommandResult(String.format(MESSAGE_EDIT_APPOINTMENT_SUCCESS,

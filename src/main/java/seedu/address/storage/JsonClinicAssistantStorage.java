@@ -50,8 +50,12 @@ public class JsonClinicAssistantStorage implements ClinicAssistantStorage {
         if (!jsonAddressBook.isPresent()) {
             return Optional.empty();
         }
-
+        logger.info("HERE IN READ CLINIC ASSISNTANT");
         try {
+            JsonSerializableClinicAssistant hi = jsonAddressBook.get();
+            logger.info("next");
+            hi.toModelType(); // this is the error
+            logger.info("nextnext");
             return Optional.of(jsonAddressBook.get().toModelType());
         } catch (IllegalValueException ive) {
             logger.info("Illegal values found in " + filePath + ": " + ive.getMessage());

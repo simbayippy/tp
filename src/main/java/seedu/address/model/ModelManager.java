@@ -42,6 +42,13 @@ public class ModelManager implements Model {
         this(new ClinicAssistant(), new UserPrefs());
     }
 
+    public ModelManager(ModelManager other) {
+        this.clinicAssistant = new ClinicAssistant(other.clinicAssistant);
+        this.userPrefs = new UserPrefs(other.userPrefs);
+        this.filteredPersons = new FilteredList<>(this.clinicAssistant.getPersonList());
+        this.filteredAppointments = new FilteredList<>(this.clinicAssistant.getAppointmentList());
+    }
+
     //=========== UserPrefs ==================================================================================
 
     @Override

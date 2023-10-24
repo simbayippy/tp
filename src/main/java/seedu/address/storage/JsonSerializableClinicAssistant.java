@@ -48,18 +48,24 @@ class JsonSerializableClinicAssistant {
      */
     public ClinicAssistant toModelType() throws IllegalValueException {
         ClinicAssistant clinicAssistant = new ClinicAssistant();
-
         for (JsonAdaptedPerson jsonAdaptedPerson : persons) {
             Person person = jsonAdaptedPerson.toModelType();
+            System.out.println("1");
             ArrayList<Appointment> appointments = jsonAdaptedPerson.toModelTypeAppointments(person);
+            System.out.println("2");
             person.setAppointments(appointments);
+            System.out.println("3");
             if (clinicAssistant.hasPerson(person)) {
+                System.out.println("4");
                 throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
             }
+            System.out.println("5");
             clinicAssistant.addPerson(person);
-
+            System.out.println("6");
             // ADDS ENTIRE LIST TO BE APPENDED TO THE MAIN APPOINTMENT LIST.
+            System.out.println(appointments);
             clinicAssistant.addAppointmentAsList(appointments);
+            System.out.println("7");
         }
         return clinicAssistant;
     }

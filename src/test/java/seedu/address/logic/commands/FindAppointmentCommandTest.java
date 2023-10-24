@@ -9,7 +9,8 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalAppointments.ALICES_APPOINTMENT;
 import static seedu.address.testutil.TypicalAppointments.BENSONS_APPOINTMENT;
 import static seedu.address.testutil.TypicalAppointments.CARLS_APPOINTMENT;
-import static seedu.address.testutil.TypicalAppointments.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalAppointments.getTypicalAddressBookPatientsAndAppointments;
+import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import java.util.Arrays;
 import java.util.Collections;

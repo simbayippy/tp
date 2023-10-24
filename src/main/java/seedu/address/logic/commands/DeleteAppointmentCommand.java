@@ -44,17 +44,25 @@ public class DeleteAppointmentCommand extends Command {
         requireNonNull(model);
         List<Appointment> lastShownAppointmentList = model.getFilteredAppointmentList();
         int zeroBasedAppointmentIndex = appointmentIndex.getZeroBased();
+        System.out.println("HERE2");
 
         if (zeroBasedAppointmentIndex >= lastShownAppointmentList.size() || zeroBasedAppointmentIndex < 0) {
+            System.out.println("HERE");
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
+        System.out.println("HERE3");
 
         // Delete appointment from model and patient
         Appointment appointmentToDelete = lastShownAppointmentList.get(zeroBasedAppointmentIndex);
         Person patient = appointmentToDelete.getPerson();
+        System.out.println("HERE4");
         int appointmentIndexInPatient = patient.getAppointments().indexOf(appointmentToDelete);
+        System.out.println("HERE5");
+        System.out.println(appointmentIndexInPatient); // this is -1
+
         patient.deleteAppointment(appointmentIndexInPatient);
         model.deleteAppointment(appointmentToDelete);
+        System.out.println("HERE4");
 
         return new CommandResult(String.format(MESSAGE_DELETE_APPOINTMENT_SUCCESS, appointmentToDelete,
                 Messages.format(patient)));

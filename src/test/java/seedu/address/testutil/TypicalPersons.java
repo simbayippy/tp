@@ -18,12 +18,14 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.testutil.TypicalAppointments.getTypicalAppointments;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.model.ClinicAssistant;
+import seedu.address.model.appointment.Appointment;
 import seedu.address.model.person.Person;
 
 /**
@@ -162,6 +164,22 @@ public class TypicalPersons {
         for (Person person : getTypicalPersons()) {
             ab.addPerson(person);
         }
+        return ab;
+    }
+
+    public static ClinicAssistant getTypicalAddressBook2() {
+        ClinicAssistant ab = new ClinicAssistant();
+        for (Appointment appt : getTypicalAppointments()) {
+            Person currPatient = appt.getPatient();
+            if (!ab.hasPerson(appt.getPatient())) {
+                currPatient.addAppointment(appt);
+                ab.addPerson(appt.getPatient());
+            } else {
+                currPatient.addAppointment(appt);
+            }
+            ab.addAppointment(appt);
+        }
+
         return ab;
     }
 

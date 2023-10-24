@@ -9,6 +9,7 @@ import java.util.Arrays;
 
 import seedu.address.model.ClinicAssistant;
 import seedu.address.model.appointment.Appointment;
+import seedu.address.model.person.Person;
 
 /**
  * A utility class containing a list of {@code Appointment} objects to be used in tests.
@@ -30,14 +31,21 @@ public class TypicalAppointments {
 
     private TypicalAppointments() {} // prevents instantiation
 
-    public static ClinicAssistant getTypicalAddressBook() {
+    public static ClinicAssistant getTypicalAddressBookPatientsAndAppointments() {
         ClinicAssistant ab = new ClinicAssistant();
         for (Appointment appt : getTypicalAppointments()) {
+            Person currPatient = appt.getPatient();
+            if (!ab.hasPerson(appt.getPatient())) {
+                currPatient.addAppointment(appt);
+                ab.addPerson(appt.getPatient());
+            } else {
+                currPatient.addAppointment(appt);
+            }
             ab.addAppointment(appt);
         }
+
         return ab;
     }
-
     public static ArrayList<Appointment> getTypicalAppointments() {
         return new ArrayList<>(Arrays.asList(ALICES_APPOINTMENT, BENSONS_APPOINTMENT, CARLS_APPOINTMENT));
     }

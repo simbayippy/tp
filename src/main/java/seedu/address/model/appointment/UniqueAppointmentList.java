@@ -5,6 +5,7 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,6 +26,8 @@ import seedu.address.model.appointment.exceptions.DuplicateAppointmentException;
  */
 public class UniqueAppointmentList implements Iterable<Appointment> {
 
+    private static final Logger logger = Logger.getLogger(UniqueAppointmentList.class.getName());
+
     private final ObservableList<Appointment> internalList = FXCollections.observableArrayList();
     private final ObservableList<Appointment> internalUnmodifiableList =
             FXCollections.unmodifiableObservableList(internalList);
@@ -44,6 +47,7 @@ public class UniqueAppointmentList implements Iterable<Appointment> {
     public void add(Appointment toAdd) {
         requireNonNull(toAdd);
         if (contains(toAdd)) {
+//            logger.warning("Attempted to add a duplicate appointment: " + toAdd);
             throw new DuplicateAppointmentException();
         }
         internalList.add(toAdd);
@@ -163,6 +167,7 @@ public class UniqueAppointmentList implements Iterable<Appointment> {
         for (int i = 0; i < appointments.size() - 1; i++) {
             for (int j = i + 1; j < appointments.size(); j++) {
                 if (appointments.get(i).isSameAppointment(appointments.get(j))) {
+                    System.out.println(appointments.get(i) + " same as " + appointments.get(j));
                     return false;
                 }
             }

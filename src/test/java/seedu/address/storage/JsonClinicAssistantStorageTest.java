@@ -84,7 +84,6 @@ public class JsonClinicAssistantStorageTest {
         jsonAddressBookStorage.saveClinicAssistant(original); // file path not specified
         readBack = jsonAddressBookStorage.readClinicAssistant().get(); // file path not specified
         assertEquals(original, new ClinicAssistant(readBack));
-
     }
 
     @Test
