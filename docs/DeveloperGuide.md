@@ -209,6 +209,30 @@ The delete Doctor command does the opposite — it calls deleteDoctor(INDEX)
     * Pros: Will be easier to implement and much simpler.
     * Cons: Going to be harder for future developer to update the Doctor Class.
 
+### Add/delete Appointment feature
+
+#### Implementation
+
+The system facilitates the add/delete appointment mechanism through the `UniqueAppointmentList` and `Appointment` Class. `UniqueAppointmentList` extends `Iterable<Appointment>` which stores and ensures all the Appointments in this list are unique. Additionally it implements the same operations as the `UniquePersonList`.
+The Appointment class encapsulates crucial appointment data: description, date (inclusive of time), associated Doctor's name, and the Patient it belongs to.
+
+The AddAppointmentCommand executes the addition of appointments by identifying the patient and doctor by their respective indices and includes the appointment description and date-time.
+The delete Appointment command does the opposite — it calls deleteAppointment(INDEX), which deletes the Appointment from the system by their Index.
+
+**Note:** If the index of either add or delete is less than 1 or exceeds the number of Appointments in the displayed List of Appointments, then the command will fail.
+
+#### Design considerations:
+
+**Aspect: How Appointments are going to be saved:**
+
+* **Alternative 1 (current choice):** Appointment is its own class containing detailed information on the Appointment.
+    * Pros: Similar to Person
+    * Cons: May introduce new bugs and is generally going to take up a lot of lines of code.
+
+* **Alternative 2:** Appointments are just a String and is going to be saved inside an ArrayList.
+    * Pros: Will be easier to implement and much simpler.
+    * Cons: Going to be harder for future developers to update the Appointment Class.
+
 ### \[Proposed\] Delete Patient
 
 #### \[Proposed\] Implementation
@@ -331,29 +355,6 @@ The above shows the sequence diagram of the find by NRIC feature.
   Even if the user inputs an erratic NRIC, they can still input the patients name
   and receive a list of possible matching patients to choose from.
     * Cons: This is harder to implement as the FilteredList would have to take in more than 1 type of predicate.
-
-### Add/delete Appointment feature
-
-#### Implementation
-
-The add/delete Appointment mechanism is facilitated by `UniqueAppointmentList` and a `Appointment` Class. `UniqueAppointmentList` extends `Iterable<Appointment>` which stores and ensures all the Appointments in this list are unique. Additionally it implements the same operations as the `UniquePersonList`.
-The Appointment class stores the relevant data of the Appointment such as description, date (inclusive of time) as well as Patient it belongs to.
-
-The delete Appointment command does the opposite — it calls deleteAppointment(INDEX), which deletes the Appointment from the system by their Index.
-
-**Note:** If the index of either add or delete is less than 1 or exceeds the number of Appointments in the List then the command will fail.
-
-#### Design considerations:
-
-**Aspect: How Appointments are going to be saved:**
-
-* **Alternative 1 (current choice):** Appointment is its own class containing detailed information on the Appointment.
-    * Pros: Similar to Person
-    * Cons: May introduce new bugs and is generally going to take up a lot of lines of code.
-
-* **Alternative 2:** Appointments are just a String and is going to be saved inside an ArrayList.
-    * Pros: Will be easier to implement and much simpler.
-    * Cons: Going to be harder for future developers to update the Appointment Class.
 
 ### Edit Appointment feature
 
