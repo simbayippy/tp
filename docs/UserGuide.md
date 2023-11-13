@@ -65,8 +65,11 @@ ClinicAssistant allows clinic staff to add, edit, delete, find and list patients
 
 In order to have a better experience in using **ClinicAssistant**, please take a look at this explanation of the GUI.
 ### Main Window
-![GUI1](images/GUI1.png)
-![GUI2](images/GUI6.png)
+
+<p align="center" width="100%">
+    <img src="images/GUI1.png" width="100%">
+    <img src="images/GUI6.png" width="100%">
+</p>
 <div style="page-break-after: always;"></div>
 
 | GUI element (red) |                                            Description                                            |
@@ -96,18 +99,24 @@ In order to have a better experience in using **ClinicAssistant**, please take a
 <div style="page-break-after: always;"></div>
 
 ### Patient Card
-![GUI3](images/PatientGUI2.png)
+<p align="center" width="100%">
+    <img src="images/PatientGUI2.png" width="100%">
+</p>
 
 --------------------------------------------------------------------------------------------------------------------
 
 ### Doctor Card
-![GUI4](images/DoctorGUI.png)
+<p align="center" width="100%">
+    <img src="images/DoctorGUI.png" width="100%">
+</p>
 
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
 
 ### Appointment Card
-![GUI5](images/AppointmentGUI.png)
+<p align="center" width="100%">
+    <img src="images/AppointmentGUI.png" width="100%">
+</p>
 
 <hr style="border:1px solid gray">
 <div style="page-break-after: always;"></div>
@@ -122,8 +131,10 @@ In order to have a better experience in using **ClinicAssistant**, please take a
 
 1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar clinicassistant.jar` command to run the application.
    A GUI similar to the below should appear in a few seconds. <br>
-   
-![Ui](images/Ui.png)
+
+<p align="center" width="100%">
+    <img src="images/Ui.png" width="100%">
+</p>  
 
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
@@ -197,7 +208,9 @@ Examples:
   * Output (success): <br>
     `New person added: Drizzy | Phone: 99090909 | Email: drake@gmail.com | Gender: F | Age: 18 | Ethnic: Chinese | NRIC: T0123456E | Address: 901 Shelby Dr | Tags:` 
 
-![patientsuccess](images/patient_success.png)
+<p align="center" width="100%">
+    <img src="images/patient_success.png" width="100%">
+</p> 
 
 * Invalid input (missing fields): `add /n Drizzy`
   * Output (failure): <br>
@@ -205,7 +218,9 @@ Examples:
   `add: Adds a person to the address book. Parameters: /n NAME /p PHONE /e EMAIL /g GENDER /age AGE /eth ETHNICITY /ic NRIC NO. /a ADDRESS [/t TAG]...`
   * **To fix:** Add in the missing mandatory fields.
 
-![patientfailure](images/patient_error.png)
+<p align="center" width="100%">
+    <img src="images/patient_error.png" width="100%">
+</p> 
 
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
@@ -241,7 +256,9 @@ Examples:
     * Output (success): <br>
       `New Doctor added: Dr Lee | Phone: 81824444 | Email: drlee@gmail.com | Gender: M | Age: 30 | Address: 901 Shelby Drive`
 
-  ![doctor success](images/add_doc.png)
+<p align="center" width="100%">
+    <img src="images/add_doc.png" width="100%">
+</p> 
   
 * Invalid input (missing fields): `add_doctor /n Dr Lee`
     * Output (failure): <br>
@@ -250,7 +267,11 @@ Examples:
       `Parameters: /n NAME /p PHONE /e EMAIL /g GENDER /age AGE /a ADDRESS` <br>
       `Example: add_doctor /n John Doe /p 98765432 /e johnd@example.com /g M /age 22 /a 311, Clementi Ave 2, #02-25` <br>
     * **To fix:** Add in the missing mandatory fields.
-![doctor failure](images/add_doc_err1.png)
+
+<p align="center" width="100%">
+    <img src="images/add_doc_err1.png" width="100%">
+</p> 
+
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
 
@@ -284,8 +305,10 @@ Examples:
 * Valid input: `appt /for 1 /doc 1 /d Blood test /on 01-01-2024 12:00`
     * Output (success): <br>
       `New appointment added | Patient: Alex Yeoh | Description: Blood test | Date: 01 Jan 2024 12.00 PM`
+<p align="center" width="100%">
+    <img src="images/appt_success.png" width="100%">
+</p>
 
-![apptSuccess](images/appt_success.png)
 * Invalid input 1 (`DESCRIPTION` not provided): `appt /for 1 /doc 1 /on 01-01-2024 12:00`
     * Output (failure): <br>
       `Invalid command format! ` <br>
@@ -293,8 +316,9 @@ Examples:
       `Parameters: /for PATIENT_INDEX /doc DOCTOR_INDEX /d DESCRIPTION /on DATE_TIME` <br>
       `Example: appt /for 1 /doc 1 /d x-ray scan /on 02-01-2024 12:00`<br>
     * **To fix:** Add in the missing description field.
-
-![apptFail](images/appt_error.png)
+<p align="center" width="100%">
+    <img src="images/appt_error.png" width="100%">
+</p>
 
 * Invalid input 2 (invalid `DATE_TIME`): `appt /for 1 /doc 1 /d Blood test /on tuesday`
     * Output (failure): <br>
@@ -302,8 +326,9 @@ Examples:
       `Date & time must be after the current time.` <br>
       `Time of appointment must be on the hour, between 9 AM and 5 PM inclusive.` <br>
     * **To fix:** Enter a valid `DATE_TIME` in dd-MM-yyy HH:mm format.
-      
-![apptFail](images/appt_error2.png)
+<p align="center" width="100%">
+    <img src="images/appt_error2.png" width="100%">
+</p>
 
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
@@ -366,11 +391,17 @@ Examples:
 * Valid input 1: `edit 1 /p 91234567 /e johndoe@example.com`
     * Output (success): <br>
   `Edited Person: Alex Yeoh | Phone: 91234567 | Email: johndoe@example.com | Gender: M | Age: 21 | Ethnic: Chinese | NRIC: T1341367E | Address: Blk 30 Geylang Street 29, #06-40 | Tags:`
-![edit success](images/edit_success.png)
+<p align="center" width="100%">
+    <img src="images/edit_success.png" width="100%">
+</p>
+
 * Valid input 2: `edit 2 /n Betsy Crower /t`
   * Output (success): <br>
   `Edited Person: Betsy Crower | Phone: 99272758 | Email: berniceyu@example.com | Gender: F | Age: 16 | Ethnic: Chinese | NRIC: T1231437E | Address: Blk 30 Lorong 3 Serangoon Gardens, #07-18 | Tags: `
-![edit success2](images/edit_fail.png)
+<p align="center" width="100%">
+    <img src="images/edit_fail.png" width="100%">
+</p>
+  
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
 
@@ -437,7 +468,10 @@ Examples:
 * Valid input: `delete 1`
     * Output (success): <br>
     `Deleted Person: Alex Yeoh | Phone: 91234567 | Email: johndoe@example.com | Gender: M | Age: 21 | Ethnic: Chinese | NRIC: T1341367E | Address: Blk 30 Geylang Street 29, #06-40 | Tags: [on antibiotics] from clinic records`
-  ![after delete](images/del.png)
+<p align="center" width="100%">
+    <img src="images/del.png" width="100%">
+</p>
+
 * Invalid input 1 (no `INDEX` provided): `delete `
     * Output (failure): <br>
       `Invalid command format! ` <br>
@@ -445,16 +479,23 @@ Examples:
       `Parameters: INDEX (must be a positive integer in the list)` <br>
       `Example: delete 1`<br>
     * **To fix**: Enter an `INDEX` such as `delete 2`
-    ![delete fail](images/del_fail1.png)
+<p align="center" width="100%">
+    <img src="images/del_fail1.png" width="100%">
+</p>
+
 * Invalid input 2 (`INDEX` out-of-bounds): `delete 10000`
     * Output (failure): <br>
       `The patient index provided is invalid` <br>
     * **To fix**: Enter an `INDEX` displayed in `Patients` tab.
-    ![delete fail 2](images/del_fail2.png)
+<p align="center" width="100%">
+    <img src="images/del_fail2.png" width="100%">
+</p>
+
 * Invalid input 3 (`INDEX` provided as word): `delete one`
     * Output (failure): <br>
       `INDEX entered must be an integer!.` <br>
     * **To fix**: Enter an `INDEX` that that is an integer.
+
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
 
@@ -554,7 +595,10 @@ Examples:
 * Valid input: `find Bernice`
     * Output (success): <br>
     `1 patient found!`
-![find](images/find.png)
+<p align="center" width="100%">
+    <img src="images/find.png" width="100%">
+</p>
+
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
 
@@ -622,8 +666,9 @@ Format: `find_appt [/n KEYWORD [MORE_KEYWORDS]...][/on DATE]`
 Examples:
 * Valid input: `find_appt /n Bernice /on 01-01-2024`
     * Output (success): `1 appointment found!` <br>
-
-![findapptSuccess](images/findappt_success.png)
+<p align="center" width="100%">
+    <img src="images/findappt_success.png" width="100%">
+</p>
 
 * Invalid input 1 (no prefixes provided): `find_appt`
     * Output (failure): <br>
@@ -632,15 +677,17 @@ Examples:
       `Parameters: [/n KEYWORD [MORE_KEYWORDS]...][/on DATE]`<br>
       `Example: find_appt /n alice bob charlie /on 01-01-2024`<br>
     * **To fix**: Enter at least 1 field to find.
-
-![findapptFailure](images/findappt_error.png)
+<p align="center" width="100%">
+    <img src="images/findappt_error.png" width="100%">
+</p>
 
 * Invalid input 2 (invalid `DATE`): `find_appt /n John /on 1 Jan 2024`
     * Output (failure): <br>
       `DATE must be in format dd-MM-yyyy` <br>
     * **To fix:** Enter a valid `DATE` in dd-MM-yyy format.
-
-![findapptFailure2](images/findappt_error2.png)
+<p align="center" width="100%">
+    <img src="images/findappt_error2.png" width="100%">
+</p>
 
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
@@ -656,7 +703,9 @@ Format: `view /on DATE`
 * At the same time, Appointments Tab will also filter to display all appointments on that `DATE` only.
 
 After calling the command, click on the timeslot tab to see something similar to the below:
-![View_Available_Timeslots](images/view.png)
+<p align="center" width="100%">
+    <img src="images/view.png" width="100%">
+</p>
 
 <box type="info" seamless>
 
@@ -676,18 +725,25 @@ Examples:<br>
 * Valid input: `view /on 01-01-2024`
     * Output (success): <br>
       `All Available Timeslot(s) on Jan 01, 2024 Listed!`
-  ![View_Available_Timeslots](images/view.png)
+<p align="center" width="100%">
+    <img src="images/view.png" width="100%">
+</p>
 
 * Invalid input 1 (invalid `DATE`): `view /on 02/01/2024`
     * Output (failure): <br>
       `DATE must be in format dd-MM-yyyy` <br>
     * **To fix**: Use `-` as date separator such as `view /on 02-01-2024`
-    ![View_Available_error](images/view_err1.png)
+<p align="center" width="100%">
+    <img src="images/view_err1.png" width="100%">
+</p> 
+
 * Invalid input 2 (`DATE` has past): `view /on 02-01-1999`
     * Output (failure): <br>
       `DATE entered has past already!` <br>
     * **To fix**: Enter a `DATE` that has not passed such as `view /on 01-10-2030`.
-      ![View_Available_error](images/view_err2.png)
+<p align="center" width="100%">
+    <img src="images/view_err2.png" width="100%">
+</p> 
 
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
